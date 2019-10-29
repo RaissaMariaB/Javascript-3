@@ -8,10 +8,10 @@
 
 // ------------------------------------------------------------------------
 // 2. melhorando o código
-// [] remover repetição de código
-// [] anonymous function
-// [] arrow function
-// [] template string
+// [x] remover repetição de código
+// [x] anonymous function
+// [x] arrow function
+// [x] template string
 
 
 const body = document.body
@@ -28,7 +28,7 @@ btn.addEventListener("click", function(){
     let R = mudaCor() //parseInt(Math.random() *255)
     let G =  mudaCor()// parseInt(Math.random() *255)
     let B = mudaCor() //parseInt(Math.random() *255)
-    let RGB = "RGB(" + R + " , " + G +" , " + B  + ")"
+    let RGB = `RGB(${R},${G},${B})`
 
     body.style.backgroundColor = RGB
 
