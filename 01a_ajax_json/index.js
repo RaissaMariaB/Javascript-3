@@ -3,26 +3,28 @@
 // [] fazer a requisição com open() e send()
 // [] tratar response
 
+const div = document.querySelector('#root');
+const img = document.createElement('img');
 
+const request = new XMLHttpRequest();
 
-const div = document.querySelector("#root")
-const img = document.createElement("img")
+request.onreadystatechange = getDados;
 
+function getDados() {
+  if (request.readyState === 4 && request.status === 200) {
+    const response = request.response;
+    const json = JSON.parse(response);
+    const data = json.data;
+    const obj = data[0]
 
-const request = new XMLHttpRequest()
-
-request.onreadystatechange = getDados
-
-function getDados(){
-    const response = request.reponse
-    const Jason = JSON.parse(response)
-    const data = jason.imagem
-
-    img.src = imgSrc
-    div.appendChild("img")
+    const imgSrc = obj.imagem
+    img.src = imgSrc;
+    div.appendChild(img);
+  } else {
+    console.log(request.readyState, request.status);
+  }
 }
 
-const url = './data/dados.jason'
-request.open("GET", url)
-request.send()
-
+const url = './data/dados.json'
+request.open('GET', url);
+request.send();

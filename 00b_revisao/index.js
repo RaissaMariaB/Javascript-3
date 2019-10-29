@@ -13,26 +13,15 @@
 // [x] arrow function
 // [x] template string
 
+const body = document.body;
+const botao = document.getElementById('trocaCor');
 
-const body = document.body
-const btn = document.getElementById("trocaCor")
-// body.style.backgroundColor = "purple"
+body.style.backgroundColor = 'purple';
+botao.addEventListener('click', () => {
+  const r = geraInteiro(255);
+  const g = geraInteiro(255);
+  const b = geraInteiro(255);
+  body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+});
 
-function mudaCor(){
-    let number = parseInt(Math.random() *255)
-
-    return number
-}
-
-btn.addEventListener("click", function(){
-    let R = mudaCor() //parseInt(Math.random() *255)
-    let G =  mudaCor()// parseInt(Math.random() *255)
-    let B = mudaCor() //parseInt(Math.random() *255)
-    let RGB = `RGB(${R},${G},${B})`
-
-    body.style.backgroundColor = RGB
-
-    console.log(RGB); 
-    
-})
-
+geraInteiro = num => parseInt(Math.random() * num);

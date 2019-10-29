@@ -6,33 +6,21 @@
 // [x] criar função de alterar a cor usando rgb()
 // [x] usar Math.random() e Math.floor() ou parseInt()
 
+const body = document.body;
+const botao = document.getElementById('trocaCor');
 
-// console.log("olar");
-// let body = document.querySelector("body")
-// const body = document.getElementsByTagName("body")
+body.style.backgroundColor = 'purple';
+// 'rgb(____,_____,____)'
+botao.addEventListener('click', mudaCor);
 
-// console.log(body);
+function geraInteiro() {
+  const n = parseInt(Math.random() * 255);
+  return n;
+}
 
-
-const body = document.body
-const btn = document.getElementById("trocaCor")
-// body.style.backgroundColor = "purple"
-
-btn.addEventListener("click", function(){
-    let R = parseInt(Math.random() *255)
-    let G = parseInt(Math.random() *255)
-    let B = parseInt(Math.random() *255)
-    let RGB = "RGB(" + R + " , " + G +" , " + B  + ")"
-
-    body.style.backgroundColor = RGB
-
-    console.log(RGB); 
-    
-})
-
-
-
-
-
-
-console.log("entrei na função");
+function mudaCor() {
+  const r = geraInteiro();
+  const g = geraInteiro();
+  const b = geraInteiro();
+  body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')'
+}
